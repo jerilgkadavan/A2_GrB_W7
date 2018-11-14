@@ -1,17 +1,23 @@
 <!doctype html>
 <html class="no-js" lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HTML5 APIs - Master</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/foundation.css" />
-    <link rel="stylesheet" href="css/overrides.css">
-    <script src="js/vendor/modernizr.js"></script>
-  </head>
-  <body>
-  <!-- top nav -> not functional yet -->
-     <header class="topNav">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HTML5 APIs - Master</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/foundation.css" />
+  <link rel="stylesheet" href="css/overrides.css">
+  <script src="js/vendor/modernizr.js"></script>
+  <!-- put looti link here -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/4.13.0/bodymovin.min.js" type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+</head>
+
+<body>
+  <main id="app">
+    <!-- top nav -> not functional yet -->
+    <header class="topNav">
       <nav>
         <img src="images/logo-s.png" alt="mini logo" class="left">
         <ul class="no-bullet inline-list">
@@ -31,9 +37,9 @@
         <div class="thumbInfo">
 
           <!-- ===== USE THESE IMG ELEMENTS (hint - an attribute is key) TO RETRIEVE THE DATA === -->
-          <img class="data-ref" src="images/F55.jpg" alt="blue mini" id="F55" data-roundaboutindex="0">
-          <img class="data-ref" src="images/F56.jpg" alt="yellow mini" id="F56" data-roundaboutindex="1">
-          <img class="data-ref" src="images/R57.jpg" alt="convertible mini" id="R58" data-roundaboutindex="2">
+          <img @click="getData" class="data-ref" src="images/F55.jpg" alt="blue mini" id="F55" data-roundaboutindex="0">
+          <img @click="getData" class="data-ref" src="images/F56.jpg" alt="yellow mini" id="F56" data-roundaboutindex="1">
+          <img @click="getData" class="data-ref" src="images/R57.jpg" alt="convertible mini" id="R58" data-roundaboutindex="2">
 
         </div>
         <hr>
@@ -51,28 +57,38 @@
       </div>
 
       <!-- model info block  -->
+<!-- preloader goes here => can use this anywhere -->
+
+<div class="preloader-wrapper">
+<!-- draw the preloader animation link -->
+  <div class="preloader"></div>
+</div>
 
       <!-- ==== POPULATE THESE ELEMENTS WITH THE QUERY RESULT === -->
       <div class="small-6 columns modelInfo">
-          <h4 class="modelName">Model Name Here</h4>
-          <p class="priceInfo">Pricing here</p>
-          <p class="modelDetails">Model details here</p>
+        <h4 class="modelName">{{ carModel }}</h4>
+        <p class="priceInfo">{{ carPricing }}</p>
+        <p class="modelDetails">{{ carDescription }}</p>
       </div>
     </div> <!-- end model info / thumbs -->
     <hr>
 
-    <div class="row"><!-- footer div -->
+    <div class="row">
+      <!-- footer div -->
       <footer class="small-12 columns">
         <!-- show the request state => temp -->
         <h1 class="request-state"></h1>
       </footer>
     </div>
-    <script src="js/vendor/jquery.js"></script>
-    <script src="js/foundation.min.js"></script>
-    <script>
-      $(document).foundation();
-    </script>
-    <!-- <script src="js/carData.js"></script> -->
-    <script src="js/master.js"></script>
-  </body>
+  </main>
+
+  <script src="js/vendor/jquery.js"></script>
+  <script src="js/foundation.min.js"></script>
+  <script>
+    $(document).foundation();
+  </script>
+  <!-- <script src="js/carData.js"></script> -->
+  <script src="js/main.js"></script>
+</body>
+
 </html>
